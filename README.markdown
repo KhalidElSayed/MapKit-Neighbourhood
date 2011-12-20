@@ -34,3 +34,9 @@ This is just quick & dirty test code. Do not use in production. Respect the Zill
 It would make more sense to store the coordinates in the sqlite database as a binary blob that can be loaded directly into the polygon overlay. That avoids the string & JSON processing completely.
 
 Memory management. I can see this eating a lot of memory. That should be avoided.
+
+## Ideas
+
+* Make an app that tells you what neighbourhood you're in
+* Make an app that uses background CoreLocation APIs to monitor when you enter a bad neighbour
+* Something something geo game.
