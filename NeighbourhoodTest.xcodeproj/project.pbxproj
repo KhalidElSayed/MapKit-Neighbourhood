@@ -21,6 +21,17 @@
 		452D2FF314A11EE700845CC9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452D2FD114A11EE700845CC9 /* Foundation.framework */; };
 		452D2FFB14A11EE700845CC9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 452D2FF914A11EE700845CC9 /* InfoPlist.strings */; };
 		452D2FFE14A11EE700845CC9 /* NeighbourhoodTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D2FFD14A11EE700845CC9 /* NeighbourhoodTestTests.m */; };
+		452D300814A11EF500845CC9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452D300714A11EF500845CC9 /* MapKit.framework */; };
+		452D303E14A11F8F00845CC9 /* CSqliteDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D301814A11F8F00845CC9 /* CSqliteDatabase.m */; };
+		452D303F14A11F8F00845CC9 /* CSqliteDatabase_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D301A14A11F8F00845CC9 /* CSqliteDatabase_Extensions.m */; };
+		452D304014A11F8F00845CC9 /* CSqliteDatabase_Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D301C14A11F8F00845CC9 /* CSqliteDatabase_Functions.m */; };
+		452D304114A11F8F00845CC9 /* CSqliteEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D301E14A11F8F00845CC9 /* CSqliteEnumerator.m */; };
+		452D304214A11F8F00845CC9 /* CSqliteRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D302014A11F8F00845CC9 /* CSqliteRow.m */; };
+		452D304314A11F8F00845CC9 /* CSqliteStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D302214A11F8F00845CC9 /* CSqliteStatement.m */; };
+		452D304414A11F8F00845CC9 /* NSArray_SqlExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D302514A11F8F00845CC9 /* NSArray_SqlExtensions.m */; };
+		452D304514A11F8F00845CC9 /* NSDate_SqlExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D302714A11F8F00845CC9 /* NSDate_SqlExtension.m */; };
+		452D304614A11F8F00845CC9 /* NSString_SqlExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D302914A11F8F00845CC9 /* NSString_SqlExtensions.m */; };
+		452D305314A11FFF00845CC9 /* shapes.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 452D305214A11FFF00845CC9 /* shapes.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,22 +49,43 @@
 		452D2FCF14A11EE700845CC9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		452D2FD114A11EE700845CC9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		452D2FD314A11EE700845CC9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		452D2FD714A11EE700845CC9 /* NeighbourhoodTest-Info.plist */ = {isa = PBXFileReference; path = "NeighbourhoodTest-Info.plist"; sourceTree = "<group>"; };
+		452D2FD714A11EE700845CC9 /* NeighbourhoodTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NeighbourhoodTest-Info.plist"; sourceTree = "<group>"; };
 		452D2FD914A11EE700845CC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		452D2FDB14A11EE700845CC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		452D2FDD14A11EE700845CC9 /* NeighbourhoodTest-Prefix.pch */ = {isa = PBXFileReference; path = "NeighbourhoodTest-Prefix.pch"; sourceTree = "<group>"; };
-		452D2FDE14A11EE700845CC9 /* CAppDelegate.h */ = {isa = PBXFileReference; path = CAppDelegate.h; sourceTree = "<group>"; };
+		452D2FDD14A11EE700845CC9 /* NeighbourhoodTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NeighbourhoodTest-Prefix.pch"; sourceTree = "<group>"; };
+		452D2FDE14A11EE700845CC9 /* CAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAppDelegate.h; sourceTree = "<group>"; };
 		452D2FDF14A11EE700845CC9 /* CAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAppDelegate.m; sourceTree = "<group>"; };
-		452D2FE114A11EE700845CC9 /* CViewController.h */ = {isa = PBXFileReference; path = CViewController.h; sourceTree = "<group>"; };
+		452D2FE114A11EE700845CC9 /* CViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CViewController.h; sourceTree = "<group>"; };
 		452D2FE214A11EE700845CC9 /* CViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CViewController.m; sourceTree = "<group>"; };
 		452D2FE514A11EE700845CC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CViewController_iPhone.xib; sourceTree = "<group>"; };
 		452D2FE814A11EE700845CC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CViewController_iPad.xib; sourceTree = "<group>"; };
 		452D2FEF14A11EE700845CC9 /* NeighbourhoodTestTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeighbourhoodTestTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		452D2FF014A11EE700845CC9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		452D2FF814A11EE700845CC9 /* NeighbourhoodTestTests-Info.plist */ = {isa = PBXFileReference; path = "NeighbourhoodTestTests-Info.plist"; sourceTree = "<group>"; };
+		452D2FF814A11EE700845CC9 /* NeighbourhoodTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NeighbourhoodTestTests-Info.plist"; sourceTree = "<group>"; };
 		452D2FFA14A11EE700845CC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		452D2FFC14A11EE700845CC9 /* NeighbourhoodTestTests.h */ = {isa = PBXFileReference; path = NeighbourhoodTestTests.h; sourceTree = "<group>"; };
+		452D2FFC14A11EE700845CC9 /* NeighbourhoodTestTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NeighbourhoodTestTests.h; sourceTree = "<group>"; };
 		452D2FFD14A11EE700845CC9 /* NeighbourhoodTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeighbourhoodTestTests.m; sourceTree = "<group>"; };
+		452D300714A11EF500845CC9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		452D301714A11F8F00845CC9 /* CSqliteDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSqliteDatabase.h; sourceTree = "<group>"; };
+		452D301814A11F8F00845CC9 /* CSqliteDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSqliteDatabase.m; sourceTree = "<group>"; };
+		452D301914A11F8F00845CC9 /* CSqliteDatabase_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSqliteDatabase_Extensions.h; sourceTree = "<group>"; };
+		452D301A14A11F8F00845CC9 /* CSqliteDatabase_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSqliteDatabase_Extensions.m; sourceTree = "<group>"; };
+		452D301B14A11F8F00845CC9 /* CSqliteDatabase_Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSqliteDatabase_Functions.h; sourceTree = "<group>"; };
+		452D301C14A11F8F00845CC9 /* CSqliteDatabase_Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSqliteDatabase_Functions.m; sourceTree = "<group>"; };
+		452D301D14A11F8F00845CC9 /* CSqliteEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSqliteEnumerator.h; sourceTree = "<group>"; };
+		452D301E14A11F8F00845CC9 /* CSqliteEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSqliteEnumerator.m; sourceTree = "<group>"; };
+		452D301F14A11F8F00845CC9 /* CSqliteRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSqliteRow.h; sourceTree = "<group>"; };
+		452D302014A11F8F00845CC9 /* CSqliteRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSqliteRow.m; sourceTree = "<group>"; };
+		452D302114A11F8F00845CC9 /* CSqliteStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSqliteStatement.h; sourceTree = "<group>"; };
+		452D302214A11F8F00845CC9 /* CSqliteStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSqliteStatement.m; sourceTree = "<group>"; };
+		452D302414A11F8F00845CC9 /* NSArray_SqlExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArray_SqlExtensions.h; sourceTree = "<group>"; };
+		452D302514A11F8F00845CC9 /* NSArray_SqlExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArray_SqlExtensions.m; sourceTree = "<group>"; };
+		452D302614A11F8F00845CC9 /* NSDate_SqlExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDate_SqlExtension.h; sourceTree = "<group>"; };
+		452D302714A11F8F00845CC9 /* NSDate_SqlExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_SqlExtension.m; sourceTree = "<group>"; };
+		452D302814A11F8F00845CC9 /* NSString_SqlExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_SqlExtensions.h; sourceTree = "<group>"; };
+		452D302914A11F8F00845CC9 /* NSString_SqlExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_SqlExtensions.m; sourceTree = "<group>"; };
+		452D302A14A11F8F00845CC9 /* TouchSQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchSQL.h; sourceTree = "<group>"; };
+		452D305214A11FFF00845CC9 /* shapes.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = shapes.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				452D300814A11EF500845CC9 /* MapKit.framework in Frameworks */,
 				452D2FD014A11EE700845CC9 /* UIKit.framework in Frameworks */,
 				452D2FD214A11EE700845CC9 /* Foundation.framework in Frameworks */,
 				452D2FD414A11EE700845CC9 /* CoreGraphics.framework in Frameworks */,
@@ -83,8 +116,10 @@
 		452D2FC014A11EE700845CC9 = {
 			isa = PBXGroup;
 			children = (
+				452D300714A11EF500845CC9 /* MapKit.framework */,
 				452D2FD514A11EE700845CC9 /* NeighbourhoodTest */,
 				452D2FF614A11EE700845CC9 /* NeighbourhoodTestTests */,
+				452D300914A11F8F00845CC9 /* TouchSQL */,
 				452D2FCE14A11EE700845CC9 /* Frameworks */,
 				452D2FCC14A11EE700845CC9 /* Products */,
 			);
@@ -119,6 +154,7 @@
 				452D2FE214A11EE700845CC9 /* CViewController.m */,
 				452D2FE414A11EE700845CC9 /* CViewController_iPhone.xib */,
 				452D2FE714A11EE700845CC9 /* CViewController_iPad.xib */,
+				452D305214A11FFF00845CC9 /* shapes.sqlite */,
 				452D2FD614A11EE700845CC9 /* Supporting Files */,
 			);
 			path = NeighbourhoodTest;
@@ -152,6 +188,49 @@
 				452D2FF914A11EE700845CC9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		452D300914A11F8F00845CC9 /* TouchSQL */ = {
+			isa = PBXGroup;
+			children = (
+				452D301614A11F8F00845CC9 /* Source */,
+			);
+			name = TouchSQL;
+			path = Externals/TouchSQL;
+			sourceTree = "<group>";
+		};
+		452D301614A11F8F00845CC9 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				452D301714A11F8F00845CC9 /* CSqliteDatabase.h */,
+				452D301814A11F8F00845CC9 /* CSqliteDatabase.m */,
+				452D301914A11F8F00845CC9 /* CSqliteDatabase_Extensions.h */,
+				452D301A14A11F8F00845CC9 /* CSqliteDatabase_Extensions.m */,
+				452D301B14A11F8F00845CC9 /* CSqliteDatabase_Functions.h */,
+				452D301C14A11F8F00845CC9 /* CSqliteDatabase_Functions.m */,
+				452D301D14A11F8F00845CC9 /* CSqliteEnumerator.h */,
+				452D301E14A11F8F00845CC9 /* CSqliteEnumerator.m */,
+				452D301F14A11F8F00845CC9 /* CSqliteRow.h */,
+				452D302014A11F8F00845CC9 /* CSqliteRow.m */,
+				452D302114A11F8F00845CC9 /* CSqliteStatement.h */,
+				452D302214A11F8F00845CC9 /* CSqliteStatement.m */,
+				452D302314A11F8F00845CC9 /* Support */,
+				452D302A14A11F8F00845CC9 /* TouchSQL.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		452D302314A11F8F00845CC9 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				452D302414A11F8F00845CC9 /* NSArray_SqlExtensions.h */,
+				452D302514A11F8F00845CC9 /* NSArray_SqlExtensions.m */,
+				452D302614A11F8F00845CC9 /* NSDate_SqlExtension.h */,
+				452D302714A11F8F00845CC9 /* NSDate_SqlExtension.m */,
+				452D302814A11F8F00845CC9 /* NSString_SqlExtensions.h */,
+				452D302914A11F8F00845CC9 /* NSString_SqlExtensions.m */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +287,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				English,
 			);
 			mainGroup = 452D2FC014A11EE700845CC9;
 			productRefGroup = 452D2FCC14A11EE700845CC9 /* Products */;
@@ -228,6 +308,7 @@
 				452D2FDA14A11EE700845CC9 /* InfoPlist.strings in Resources */,
 				452D2FE614A11EE700845CC9 /* CViewController_iPhone.xib in Resources */,
 				452D2FE914A11EE700845CC9 /* CViewController_iPad.xib in Resources */,
+				452D305314A11FFF00845CC9 /* shapes.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +346,15 @@
 				452D2FDC14A11EE700845CC9 /* main.m in Sources */,
 				452D2FE014A11EE700845CC9 /* CAppDelegate.m in Sources */,
 				452D2FE314A11EE700845CC9 /* CViewController.m in Sources */,
+				452D303E14A11F8F00845CC9 /* CSqliteDatabase.m in Sources */,
+				452D303F14A11F8F00845CC9 /* CSqliteDatabase_Extensions.m in Sources */,
+				452D304014A11F8F00845CC9 /* CSqliteDatabase_Functions.m in Sources */,
+				452D304114A11F8F00845CC9 /* CSqliteEnumerator.m in Sources */,
+				452D304214A11F8F00845CC9 /* CSqliteRow.m in Sources */,
+				452D304314A11F8F00845CC9 /* CSqliteStatement.m in Sources */,
+				452D304414A11F8F00845CC9 /* NSArray_SqlExtensions.m in Sources */,
+				452D304514A11F8F00845CC9 /* NSDate_SqlExtension.m in Sources */,
+				452D304614A11F8F00845CC9 /* NSString_SqlExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +465,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NeighbourhoodTest/NeighbourhoodTest-Prefix.pch";
 				INFOPLIST_FILE = "NeighbourhoodTest/NeighbourhoodTest-Info.plist";
+				OTHER_LDFLAGS = "-lsqlite3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -386,6 +477,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NeighbourhoodTest/NeighbourhoodTest-Prefix.pch";
 				INFOPLIST_FILE = "NeighbourhoodTest/NeighbourhoodTest-Info.plist";
+				OTHER_LDFLAGS = "-lsqlite3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

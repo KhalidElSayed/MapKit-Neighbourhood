@@ -8,48 +8,71 @@
 
 #import "CViewController.h"
 
+#import <MapKit/MapKit.h>
+
+#import "TouchSQL.h"
+
+@interface CViewController () <MKMapViewDelegate>
+@property (readwrite, nonatomic, strong) IBOutlet MKMapView *mapView;
+@property (readwrite, nonatomic, strong) CSqliteDatabase *database;
+@end
+
 @implementation CViewController
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
+@synthesize mapView;
+@synthesize database;
 
 - (void)viewDidLoad
-{
+    {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
+    
+    NSURL *theURL = [[NSBundle mainBundle] URLForResource:@"shapes" withExtension:@"sqlite"];
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
+    NSError *theError = NULL;
+    self.database = [[CSqliteDatabase alloc] initWithURL:theURL flags:SQLITE_OPEN_READONLY error:&theError];
+    
+    CSqliteStatement *theStatement = [self.database statementWithFormat:@"SELECT * FROM neighbourhood"];
+    for (NSDictionary *theRecord in theStatement)
+        {
+//        NSLog(@"%@", foo);
+        
+        NSString *thePointsString = [theRecord objectForKey:@"points"];
+        NSData *thePointsData = [thePointsString dataUsingEncoding:NSASCIIStringEncoding];
+        NSError *theError = NULL;
+        NSArray *thePoints = [NSJSONSerialization JSONObjectWithData:thePointsData options:0 error:&theError];
+        CLLocationCoordinate2D *theCoordinates = malloc(sizeof(CLLocationCoordinate2D) * thePoints.count);
+        CLLocationCoordinate2D *P = theCoordinates;
+        for (NSArray *thePointArray in thePoints)
+            {
+            *P++ = (CLLocationCoordinate2D){ 
+                .latitude = [[thePointArray objectAtIndex:1] doubleValue],
+                .longitude = [[thePointArray objectAtIndex:0] doubleValue],
+                };
+            }
+        
+        MKPolygon *thePolygon = [MKPolygon polygonWithCoordinates:theCoordinates count:thePoints.count];
+        
+        [self.mapView addOverlay:thePolygon];
+        
+        free(theCoordinates);
+        }
+    
+    }
+    
+- (void)didReceiveMemoryWarning
+    {
+    [super didReceiveMemoryWarning];
+    NSLog(@"MEMORY WARNING");
+    }
+    
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+    {
+    MKPolygonView *thePolygonView = [[MKPolygonView alloc] initWithPolygon:overlay];
+    [thePolygonView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)]];
+    thePolygonView.strokeColor = [UIColor redColor];
+    thePolygonView.lineWidth = 1.0;
+    return(thePolygonView);
+    }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -60,5 +83,10 @@
         return YES;
     }
 }
+
+- (void)tap:(UITapGestureRecognizer *)inGestureRecognizer
+    {
+    NSLog(@"%@", inGestureRecognizer.view);
+    }
 
 @end
