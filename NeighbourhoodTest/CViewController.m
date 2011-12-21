@@ -37,23 +37,12 @@
 //        NSLog(@"%@", foo);
         
         NSData *thePointsData = [theRecord objectForKey:@"points"];
-        NSError *theError = NULL;
-        NSArray *thePoints = [NSJSONSerialization JSONObjectWithData:thePointsData options:0 error:&theError];
-        CLLocationCoordinate2D *theCoordinates = malloc(sizeof(CLLocationCoordinate2D) * thePoints.count);
-        CLLocationCoordinate2D *P = theCoordinates;
-        for (NSArray *thePointArray in thePoints)
-            {
-            *P++ = (CLLocationCoordinate2D){ 
-                .latitude = [[thePointArray objectAtIndex:1] doubleValue],
-                .longitude = [[thePointArray objectAtIndex:0] doubleValue],
-                };
-            }
+        const CLLocationCoordinate2D *theCoordinates = [thePointsData bytes];
+        NSUInteger theCount = thePointsData.length / sizeof(CLLocationCoordinate2D);
         
-        MKPolygon *thePolygon = [MKPolygon polygonWithCoordinates:theCoordinates count:thePoints.count];
+        MKPolygon *thePolygon = [MKPolygon polygonWithCoordinates:theCoordinates count:theCount];
         
         [self.mapView addOverlay:thePolygon];
-        
-        free(theCoordinates);
         }
     
     }

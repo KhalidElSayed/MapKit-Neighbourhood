@@ -1,12 +1,12 @@
 #!/usr/bin/python
 
+import json
+import struct
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Binary
 from sqlalchemy.orm import sessionmaker
-
-#engine = create_engine('sqlite:///:memory:', echo=False)
-engine = create_engine('sqlite:///shapes.sqlite', echo=False)
+import shapefile
 
 Base = declarative_base()
 
@@ -33,17 +33,14 @@ class Neighbourhood(Base):
      def __repr__(self):
         return "Neighbourhood(%d,%s,%s,%s,%s,%s)" % (self.id, self.name, self.state, self.county, self.city, self.bbox)
 
+#engine = create_engine('sqlite:///:memory:', echo=False)
+engine = create_engine('sqlite:///shapes.sqlite', echo=False)
 Base.metadata.create_all(engine)
-
-
 Session = sessionmaker(bind=engine)
 theSession = Session()
 
 ################################################################################
 
-import json
-
-import shapefile
 theShapeFile = shapefile.Reader('ZillowNeighborhoods-CA/ZillowNeighborhoods-CA')
 
 #print theShapeFile.fields
@@ -51,8 +48,11 @@ for theShape, theRecord in zip(theShapeFile.shapes(), theShapeFile.records()):
     theState, theCounty, theCity, theName, theRegionID = (theRecord[0], theRecord[1], theRecord[2], theRecord[3], int(theRecord[4]))
 #    print theObject
 #    print list(theShape.bbox)
-    thePoints = [list(p) for p in theShape.points]
-    theObject = Neighbourhood(theRegionID, theName, theState, theCounty, theCity, json.dumps(list(theShape.bbox)), json.dumps(thePoints))
+#    thePoints = [list(p) for p in theShape.points]
+    thePoints = [struct.pack('<dd', p[1], p[0]) for p in theShape.points]
+    thePoints = ''.join(thePoints)
+
+    theObject = Neighbourhood(theRegionID, theName, theState, theCounty, theCity, json.dumps(list(theShape.bbox)), thePoints)
     theSession.add(theObject)
 
 theSession.commit()
