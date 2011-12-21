@@ -12,15 +12,21 @@
 
 #import "TouchSQL.h"
 
+#import <objc/runtime.h>
+
+static void *kKey;
+
 @interface CViewController () <MKMapViewDelegate>
 @property (readwrite, nonatomic, strong) IBOutlet MKMapView *mapView;
 @property (readwrite, nonatomic, strong) CSqliteDatabase *database;
+@property (readwrite, nonatomic, strong) NSCache *overlayViewCache;
 @end
 
 @implementation CViewController
 
 @synthesize mapView;
 @synthesize database;
+@synthesize overlayViewCache;
 
 - (void)viewDidLoad
     {
@@ -41,10 +47,13 @@
         NSUInteger theCount = thePointsData.length / sizeof(CLLocationCoordinate2D);
         
         MKPolygon *thePolygon = [MKPolygon polygonWithCoordinates:theCoordinates count:theCount];
+        objc_setAssociatedObject(thePolygon, &kKey, [theRecord objectForKey:@"id"], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
         [self.mapView addOverlay:thePolygon];
         }
     
+    
+    overlayViewCache = [[NSCache alloc] init];
     }
     
 - (void)didReceiveMemoryWarning
@@ -55,9 +64,15 @@
     
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
     {
-    MKPolygonView *thePolygonView = [[MKPolygonView alloc] initWithPolygon:overlay];
-    thePolygonView.strokeColor = [UIColor redColor];
-    thePolygonView.lineWidth = 1.0;
+    id theKey = objc_getAssociatedObject(overlay, &kKey);
+    MKPolygonView *thePolygonView = [self.overlayViewCache objectForKey:theKey];
+    if (thePolygonView == NULL)
+        {
+        thePolygonView = [[MKPolygonView alloc] initWithPolygon:overlay];
+        thePolygonView.strokeColor = [UIColor redColor];
+        thePolygonView.lineWidth = 1.0;
+        [self.overlayViewCache setObject:thePolygonView forKey:theKey];
+        }
     return(thePolygonView);
     }
 
