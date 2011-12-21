@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4525464814A24648007941D0 /* shapes.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4525464714A24648007941D0 /* shapes.sqlite */; };
 		452D2FD014A11EE700845CC9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452D2FCF14A11EE700845CC9 /* UIKit.framework */; };
 		452D2FD214A11EE700845CC9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452D2FD114A11EE700845CC9 /* Foundation.framework */; };
 		452D2FD414A11EE700845CC9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452D2FD314A11EE700845CC9 /* CoreGraphics.framework */; };
@@ -31,7 +32,6 @@
 		452D304414A11F8F00845CC9 /* NSArray_SqlExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D302514A11F8F00845CC9 /* NSArray_SqlExtensions.m */; };
 		452D304514A11F8F00845CC9 /* NSDate_SqlExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D302714A11F8F00845CC9 /* NSDate_SqlExtension.m */; };
 		452D304614A11F8F00845CC9 /* NSString_SqlExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 452D302914A11F8F00845CC9 /* NSString_SqlExtensions.m */; };
-		452D305314A11FFF00845CC9 /* shapes.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 452D305214A11FFF00845CC9 /* shapes.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4525464714A24648007941D0 /* shapes.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = shapes.sqlite; sourceTree = SOURCE_ROOT; };
 		452D2FCB14A11EE700845CC9 /* NeighbourhoodTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeighbourhoodTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452D2FCF14A11EE700845CC9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		452D2FD114A11EE700845CC9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,7 +86,6 @@
 		452D302814A11F8F00845CC9 /* NSString_SqlExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_SqlExtensions.h; sourceTree = "<group>"; };
 		452D302914A11F8F00845CC9 /* NSString_SqlExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_SqlExtensions.m; sourceTree = "<group>"; };
 		452D302A14A11F8F00845CC9 /* TouchSQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchSQL.h; sourceTree = "<group>"; };
-		452D305214A11FFF00845CC9 /* shapes.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = shapes.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +154,7 @@
 				452D2FE214A11EE700845CC9 /* CViewController.m */,
 				452D2FE414A11EE700845CC9 /* CViewController_iPhone.xib */,
 				452D2FE714A11EE700845CC9 /* CViewController_iPad.xib */,
-				452D305214A11FFF00845CC9 /* shapes.sqlite */,
+				4525464714A24648007941D0 /* shapes.sqlite */,
 				452D2FD614A11EE700845CC9 /* Supporting Files */,
 			);
 			path = NeighbourhoodTest;
@@ -308,7 +308,7 @@
 				452D2FDA14A11EE700845CC9 /* InfoPlist.strings in Resources */,
 				452D2FE614A11EE700845CC9 /* CViewController_iPhone.xib in Resources */,
 				452D2FE914A11EE700845CC9 /* CViewController_iPad.xib in Resources */,
-				452D305314A11FFF00845CC9 /* shapes.sqlite in Resources */,
+				4525464814A24648007941D0 /* shapes.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +536,7 @@
 				452D300314A11EE700845CC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		452D300414A11EE700845CC9 /* Build configuration list for PBXNativeTarget "NeighbourhoodTestTests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +545,7 @@
 				452D300614A11EE700845CC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

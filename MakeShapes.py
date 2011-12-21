@@ -2,11 +2,11 @@
 
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Binary
 from sqlalchemy.orm import sessionmaker
 
 #engine = create_engine('sqlite:///:memory:', echo=False)
-engine = create_engine('sqlite:////Users/schwa/Desktop/shapes.sqlite', echo=False)
+engine = create_engine('sqlite:///shapes.sqlite', echo=False)
 
 Base = declarative_base()
 
@@ -19,7 +19,7 @@ class Neighbourhood(Base):
      county = Column(String)
      city = Column(String)
      bbox = Column(String)
-     points = Column(String)
+     points = Column(Binary)
 
      def __init__(self, id, name, state, county, city, bbox, points):
          self.id = id
@@ -44,7 +44,7 @@ theSession = Session()
 import json
 
 import shapefile
-theShapeFile = shapefile.Reader('/Users/schwa/Downloads/ZillowNeighborhoods-CA/ZillowNeighborhoods-CA')
+theShapeFile = shapefile.Reader('ZillowNeighborhoods-CA/ZillowNeighborhoods-CA')
 
 #print theShapeFile.fields
 for theShape, theRecord in zip(theShapeFile.shapes(), theShapeFile.records()):

@@ -36,8 +36,7 @@
         {
 //        NSLog(@"%@", foo);
         
-        NSString *thePointsString = [theRecord objectForKey:@"points"];
-        NSData *thePointsData = [thePointsString dataUsingEncoding:NSASCIIStringEncoding];
+        NSData *thePointsData = [theRecord objectForKey:@"points"];
         NSError *theError = NULL;
         NSArray *thePoints = [NSJSONSerialization JSONObjectWithData:thePointsData options:0 error:&theError];
         CLLocationCoordinate2D *theCoordinates = malloc(sizeof(CLLocationCoordinate2D) * thePoints.count);
