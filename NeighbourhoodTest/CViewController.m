@@ -56,7 +56,6 @@
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
     {
     MKPolygonView *thePolygonView = [[MKPolygonView alloc] initWithPolygon:overlay];
-    [thePolygonView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)]];
     thePolygonView.strokeColor = [UIColor redColor];
     thePolygonView.lineWidth = 1.0;
     return(thePolygonView);
@@ -71,10 +70,5 @@
         return YES;
     }
 }
-
-- (void)tap:(UITapGestureRecognizer *)inGestureRecognizer
-    {
-    NSLog(@"%@", inGestureRecognizer.view);
-    }
 
 @end
